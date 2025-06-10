@@ -5,7 +5,7 @@ const timeStampDataFuturo = dateFutura.getTime();
 
 console.log('data futura',timeStampDataFuturo);
 
-setInterval(function(){
+const dataDoEvento = setInterval(function(){
     const dataAtual = new Date();
     const timeSTampDataAtual = dataAtual.getTime();
     const dataEvent = timeStampDataFuturo - timeSTampDataAtual;
@@ -23,6 +23,7 @@ setInterval(function(){
     document.querySelector('.contagem-regressiva').innerHTML = `${dataEmDias}d ${dataEmHoras}h ${dataEmMinutos}m ${dataEmSegundos}s`;
 
     if(timeSTampDataAtual > timeStampDataFuturo){
+        clearInterval(dataDoEvento);
         document.querySelector('.contagem-regressiva').innerHTML ="O evento já começou";
     }
 },1000)
